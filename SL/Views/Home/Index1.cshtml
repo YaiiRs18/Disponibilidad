@@ -1,0 +1,44 @@
+﻿@model List<ML.Entities.Datos_Personales>
+
+@{
+    ViewBag.Title = "Index1";
+}
+
+
+
+<h2>
+    <a href="@Url.Action("Agregar", "Home")" class="btn btn-primary right ">  Agregar</a>
+
+    Listado de Docentes
+</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Id_Datos_Personales</td>
+            <td>Nombre</td>
+            <td>APaterno</td>
+            <td>AMaterno</td>
+            <td>Edad</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td>@obj.Id_Datos_Personales</td>
+                <td>@obj.Nombre</td>
+                <td>@obj.APaterno</td>
+                <td>@obj.AMaterno</td>
+                <td>@obj.Edad</td>
+                <td>
+                  @Html.ActionLink("Eliminar" ,"Eliminar", new { ID = obj.Id_Datos_Personales } )
+                </td>
+
+            </tr>
+
+        }
+
+    </tbody>
+</table>
